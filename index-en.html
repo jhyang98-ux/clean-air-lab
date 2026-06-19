@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clean Air Making Laboratory | Environmental Engineering, Chungnam National University</title>
+<meta name="description" content="Prof. Jae Hwan Yang's lab at Chungnam National University. We develop environmental catalysts that break down hazardous gases and upcycle waste PET into activated carbon. Now recruiting graduate students.">
+
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --paper:#F4F7F5;--paper-2:#EAF1EC;--ink:#16241E;--ink-soft:#46564E;--ink-faint:#6E7E76;
+  --forest:#15503A;--forest-2:#1C6147;--leaf:#2FA068;--leaf-bright:#3EBE7E;
+  --carbon:#172220;--carbon-2:#21302B;--line:#D3DFD7;--line-soft:#E4ECE6;--white:#FFFFFF;
+  --font-sans:'Pretendard Variable',Pretendard,-apple-system,BlinkMacSystemFont,system-ui,sans-serif;
+  --font-serif:'Fraunces',Georgia,serif;--font-mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+  --maxw:1120px;--gap:clamp(72px,9vw,124px);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-sans);background:var(--paper);color:var(--ink);line-height:1.62;font-weight:400;letter-spacing:-.003em;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+::selection{background:var(--leaf);color:#fff}
+.container{max-width:var(--maxw);margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--leaf);font-weight:500;display:inline-flex;align-items:center;gap:.6em}
+.eyebrow .hx{width:9px;height:10px;display:inline-block;background:var(--leaf);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+
+/* nav */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;background:rgba(244,247,245,.82);backdrop-filter:saturate(160%) blur(14px);-webkit-backdrop-filter:saturate(160%) blur(14px);border-bottom:1px solid transparent;transition:border-color .3s,background .3s}
+.nav.scrolled{border-bottom-color:var(--line);background:rgba(244,247,245,.93)}
+.nav-inner{max-width:var(--maxw);margin:0 auto;padding:0 28px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:11px;font-weight:700;font-size:1.02rem;letter-spacing:-.01em}
+.brand svg{width:26px;height:29px;flex:none}
+.brand small{display:block;font-family:var(--font-mono);font-size:.57rem;letter-spacing:.13em;color:var(--ink-faint);font-weight:400;text-transform:uppercase;margin-top:1px}
+.nav-links{display:flex;align-items:center;gap:26px}
+.nav-links a{font-size:.91rem;color:var(--ink-soft);font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--ink)}
+.nav-lang{font-family:var(--font-mono);font-size:.74rem;letter-spacing:.08em;color:var(--ink-faint);border:1px solid var(--line);padding:5px 10px;border-radius:8px}
+.nav-lang:hover{border-color:var(--forest);color:var(--forest)}
+.nav-cta{background:var(--forest);color:#fff !important;padding:9px 17px;border-radius:100px;font-size:.85rem;font-weight:600;transition:background .2s,transform .2s}
+.nav-cta:hover{background:var(--leaf);transform:translateY(-1px)}
+.nav-toggle{display:none;background:none;border:none;cursor:pointer;padding:8px;color:var(--ink)}
+.nav-toggle svg{width:24px;height:24px}
+
+/* hero */
+.hero{position:relative;padding:158px 0 96px;overflow:hidden}
+.hero-glow{position:absolute;inset:0;z-index:0;pointer-events:none;background:radial-gradient(60% 50% at 78% 12%,rgba(62,190,126,.16),transparent 70%),radial-gradient(50% 45% at 8% 92%,rgba(21,80,58,.10),transparent 70%)}
+.hero-hex{position:absolute;inset:0;z-index:0;pointer-events:none;opacity:.55}
+.hero-hex polygon{fill:none;stroke:var(--forest);stroke-width:1;opacity:.12}
+.hero .container{position:relative;z-index:1}
+.hero-name{font-family:var(--font-serif);font-size:clamp(1.05rem,1.6vw,1.3rem);font-style:italic;color:var(--forest-2);font-weight:500;margin:24px 0 18px}
+.hero h1{font-size:clamp(2.6rem,6.4vw,4.7rem);line-height:1.04;font-weight:800;letter-spacing:-.035em;margin-bottom:28px;max-width:15ch}
+.hero h1 .accent{color:var(--leaf)}
+.hero-sub{font-size:clamp(1.05rem,1.7vw,1.26rem);color:var(--ink-soft);max-width:52ch;line-height:1.65;margin-bottom:38px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px;align-items:center;margin-bottom:46px}
+.btn{display:inline-flex;align-items:center;gap:.5em;padding:14px 26px;border-radius:100px;font-weight:600;font-size:.98rem;transition:transform .2s,background .2s,box-shadow .2s,border-color .2s;cursor:pointer;border:1px solid transparent}
+.btn-primary{background:var(--forest);color:#fff;box-shadow:0 6px 20px -8px rgba(21,80,58,.5)}
+.btn-primary:hover{background:var(--leaf);transform:translateY(-2px);box-shadow:0 10px 26px -8px rgba(47,160,104,.5)}
+.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-ghost:hover{border-color:var(--forest);transform:translateY(-2px)}
+.hero-tags{font-family:var(--font-mono);font-size:.8rem;color:var(--ink-faint);letter-spacing:.04em;display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.hero-tags b{color:var(--forest-2);font-weight:600}
+.hero-tags .dot{color:var(--line)}
+
+/* stats */
+.stats{background:var(--carbon);color:#fff}
+.stats-inner{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.08)}
+.stat{background:var(--carbon);padding:38px 26px;text-align:center}
+.stat .s-num{font-family:var(--font-serif);font-size:clamp(2rem,4vw,2.9rem);font-weight:600;color:var(--leaf-bright);line-height:1}
+.stat .s-lab{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.6);margin-top:12px}
+
+/* section frame */
+.section{padding:var(--gap) 0;position:relative}
+.section--tint{background:var(--paper-2)}
+.section-head{margin-bottom:52px;max-width:64ch}
+.section-head h2{font-size:clamp(1.85rem,3.6vw,2.7rem);font-weight:800;letter-spacing:-.03em;line-height:1.12;margin:16px 0 0}
+.section-head p{margin-top:18px;font-size:1.06rem;color:var(--ink-soft);line-height:1.68;max-width:58ch}
+
+/* about */
+.about-grid{display:grid;grid-template-columns:300px 1fr;gap:56px;align-items:start}
+.pi-card{position:sticky;top:96px}
+.pi-photo{aspect-ratio:4/5;border-radius:18px;background:linear-gradient(150deg,var(--forest),var(--carbon));position:relative;overflow:hidden;border:1px solid var(--line)}
+.pi-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 20%}
+.pi-photo .ph-fallback{position:absolute;inset:0;display:flex;align-items:flex-end;justify-content:center}
+.pi-photo .ph-hex{position:absolute;inset:0;opacity:.16}
+.pi-photo .ph-hex polygon{fill:none;stroke:#fff;stroke-width:1.2}
+.pi-photo .ph-label{position:relative;z-index:1;color:rgba(255,255,255,.86);font-family:var(--font-mono);font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;padding:0 0 18px;text-align:center}
+.pi-meta{margin-top:20px}
+.pi-meta .pi-name{font-size:1.4rem;font-weight:800;letter-spacing:-.02em}
+.pi-meta .pi-role{font-family:var(--font-mono);font-size:.76rem;color:var(--leaf);letter-spacing:.05em;margin-top:5px}
+.pi-meta .pi-en{font-family:var(--font-serif);font-style:italic;color:var(--ink-faint);font-size:.95rem;margin-top:6px}
+.pi-contact{margin-top:22px;border-top:1px solid var(--line);padding-top:20px;display:grid;gap:11px}
+.pi-contact a,.pi-contact span{font-size:.88rem;color:var(--ink-soft);display:flex;gap:9px;align-items:flex-start;word-break:break-all}
+.pi-contact a:hover{color:var(--forest)}
+.pi-contact svg{width:15px;height:15px;flex:none;color:var(--leaf);margin-top:2px}
+.about-body .section-head{margin-bottom:30px}
+.about-body p{color:var(--ink-soft);font-size:1.05rem;line-height:1.72;margin-bottom:18px;max-width:62ch}
+.about-body p strong{color:var(--ink);font-weight:600}
+.cv{list-style:none;margin-top:30px;border-top:1px solid var(--line)}
+.cv li{display:flex;gap:18px;padding:15px 0;border-bottom:1px solid var(--line-soft);align-items:baseline}
+.cv .yr{font-family:var(--font-mono);font-size:.8rem;color:var(--leaf);font-weight:500;flex:none;width:104px}
+.cv .what{font-size:.97rem;color:var(--ink)}
+.cv .what em{font-style:normal;color:var(--ink-faint);font-size:.85rem;display:block;margin-top:2px}
+
+/* transformation flow */
+.flow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;align-items:stretch;margin:6px 0 56px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:var(--white)}
+.flow-node{padding:34px 24px;text-align:center;display:flex;flex-direction:column;justify-content:center;gap:8px}
+.flow-node .fn-tag{font-family:var(--font-mono);font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--leaf)}
+.flow-node .fn-title{font-weight:700;font-size:1.04rem;letter-spacing:-.01em}
+.flow-node .fn-sub{font-size:.84rem;color:var(--ink-faint);line-height:1.5}
+.flow-node.is-dark{background:var(--carbon);color:#fff}
+.flow-node.is-dark .fn-sub{color:rgba(255,255,255,.62)}
+.flow-arrow{display:flex;align-items:center;justify-content:center;padding:0 6px;color:var(--leaf)}
+.flow-arrow svg{width:26px;height:26px}
+
+/* research cards */
+.r-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(238px,1fr));gap:20px}
+.r-card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:28px 26px;display:flex;flex-direction:column;gap:13px;transition:transform .25s,box-shadow .25s,border-color .25s}
+.r-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px -20px rgba(21,80,58,.35);border-color:var(--leaf)}
+.r-card .r-num{font-family:var(--font-mono);font-size:.72rem;color:var(--ink-faint);letter-spacing:.06em}
+.r-card .r-formula{font-family:var(--font-mono);font-size:1.24rem;font-weight:600;color:var(--forest);letter-spacing:.01em}
+.r-card h3{font-size:1.12rem;font-weight:700;letter-spacing:-.015em}
+.r-card p{font-size:.93rem;color:var(--ink-soft);line-height:1.62}
+.r-card .r-lead{margin-top:auto;padding-top:13px;border-top:1px solid var(--line-soft);font-size:.78rem;color:var(--ink-faint);font-family:var(--font-mono);letter-spacing:.02em}
+.r-card .r-lead b{color:var(--leaf);font-weight:600}
+.r-keys{margin-top:40px;display:flex;flex-wrap:wrap;gap:10px;justify-content:center}
+.r-keys span{font-family:var(--font-mono);font-size:.78rem;color:var(--forest-2);border:1px solid var(--line);background:var(--white);padding:7px 14px;border-radius:100px}
+
+/* members */
+.m-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(184px,1fr));gap:20px}
+.m-card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:18px;transition:transform .2s,border-color .2s}
+.m-card:hover{transform:translateY(-3px);border-color:var(--leaf)}
+.m-photo{aspect-ratio:1/1;border-radius:13px;overflow:hidden;margin-bottom:15px;position:relative;background:var(--forest)}
+.m-card:nth-child(3n+2) .m-photo{background:var(--leaf)}
+.m-card:nth-child(3n) .m-photo{background:var(--carbon-2)}
+.m-photo[data-initial]::after{content:attr(data-initial);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.9rem;font-weight:700}
+.m-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.m-card .m-name{font-size:1.08rem;font-weight:700;letter-spacing:-.01em}
+.m-card .m-role{font-family:var(--font-mono);font-size:.68rem;letter-spacing:.05em;color:var(--leaf);text-transform:uppercase;margin-top:3px}
+.m-card .m-topic{font-size:.86rem;color:var(--ink-soft);margin-top:9px;line-height:1.5}
+.m-join{background:linear-gradient(155deg,var(--forest),var(--carbon));color:#fff;border:none;display:flex;flex-direction:column;justify-content:center;text-align:center;padding:26px 20px}
+.m-join .mj-plus{width:50px;height:55px;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:#fff;background:rgba(255,255,255,.16);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+.m-join .m-name{color:#fff}.m-join .m-topic{color:rgba(255,255,255,.72)}
+.m-join a{margin-top:13px;font-weight:600;font-size:.86rem;color:var(--leaf-bright);display:inline-flex;gap:.4em;align-items:center;justify-content:center}
+.m-join a:hover{gap:.7em}
+.m-ug{margin-top:26px;font-size:.92rem;color:var(--ink-faint);display:flex;gap:10px;align-items:baseline;flex-wrap:wrap}
+.m-ug b{color:var(--ink-soft);font-weight:600}
+
+/* alumni */
+.al-head{margin:64px 0 24px;display:flex;align-items:baseline;gap:14px}
+.al-head h3{font-size:1.3rem;font-weight:800;letter-spacing:-.02em}
+.al-head span{font-family:var(--font-mono);font-size:.76rem;color:var(--ink-faint)}
+.al-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(248px,1fr));gap:14px}
+.al-card{display:flex;gap:14px;align-items:center;border:1px solid var(--line);border-radius:14px;padding:14px 16px;background:var(--white)}
+.al-ava{width:46px;height:46px;border-radius:50%;flex:none;overflow:hidden;background:var(--forest-2);position:relative}
+.al-ava[data-initial]::after{content:attr(data-initial);position:absolute;inset:0;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1rem;font-weight:700}
+.al-ava img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top}
+.al-info .al-name{font-weight:700;font-size:.95rem;letter-spacing:-.01em}
+.al-info .al-now{font-size:.82rem;color:var(--leaf);margin-top:2px}
+.al-info .al-deg{font-size:.76rem;color:var(--ink-faint);margin-top:1px}
+
+/* join */
+.join{background:var(--carbon);color:#fff;position:relative;overflow:hidden}
+.join .hero-hex{opacity:.7}.join .hero-hex polygon{stroke:#fff;opacity:.07}
+.join .container{position:relative;z-index:1}
+.join .eyebrow{color:var(--leaf-bright)}.join .eyebrow .hx{background:var(--leaf-bright)}
+.join h2{color:#fff;font-size:clamp(1.95rem,3.8vw,2.9rem);font-weight:800;letter-spacing:-.03em;margin:16px 0 18px;line-height:1.1}
+.join .lead{color:rgba(255,255,255,.74);font-size:1.1rem;max-width:56ch;line-height:1.7;margin-bottom:52px}
+.join-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.1);border-radius:18px;overflow:hidden;margin-bottom:50px}
+.join-item{background:var(--carbon);padding:32px 30px;display:flex;flex-direction:column;gap:12px}
+.join-item .ji-hx{width:30px;height:33px;color:var(--leaf-bright)}
+.join-item h3{font-size:1.14rem;font-weight:700;color:#fff;letter-spacing:-.01em}
+.join-item p{font-size:.95rem;color:rgba(255,255,255,.66);line-height:1.64}
+.join-apply{border:1px solid rgba(255,255,255,.14);border-radius:18px;padding:40px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:26px;background:rgba(255,255,255,.03)}
+.join-apply .ja-text h3{font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:8px}
+.join-apply .ja-text p{color:rgba(255,255,255,.66);font-size:.97rem;max-width:50ch}
+.join-apply .btn-primary{background:var(--leaf);box-shadow:0 8px 26px -10px rgba(62,190,126,.6)}
+.join-apply .btn-primary:hover{background:var(--leaf-bright)}
+
+/* teaching */
+.t-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.t-card{border:1px solid var(--line);border-radius:16px;padding:28px 26px;background:var(--white);transition:border-color .2s}
+.t-card:hover{border-color:var(--leaf)}
+.t-card .t-level{font-family:var(--font-mono);font-size:.7rem;letter-spacing:.07em;color:var(--leaf);text-transform:uppercase}
+.t-card h3{font-size:1.12rem;font-weight:700;margin:10px 0 8px;letter-spacing:-.01em}
+.t-card p{font-size:.9rem;color:var(--ink-soft);line-height:1.58}
+.t-note{margin-top:28px;font-size:.94rem;color:var(--ink-faint);display:flex;gap:10px;align-items:flex-start}
+.t-note .hx{width:13px;height:14px;flex:none;margin-top:5px;background:var(--leaf);clip-path:polygon(50% 0,100% 25%,100% 75%,50% 100%,0 75%,0 25%)}
+
+/* publications */
+.pub-tabs{display:flex;gap:0;border-bottom:1px solid var(--line);margin-bottom:30px}
+.pub-tab{font-family:var(--font-mono);font-size:.82rem;letter-spacing:.04em;padding:12px 20px;color:var(--ink-faint);cursor:pointer;border:none;background:none;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s}
+.pub-tab.active{color:var(--forest);border-bottom-color:var(--forest);font-weight:600}
+.pub-panel{display:none}.pub-panel.active{display:block}
+.pub-year{display:flex;align-items:baseline;gap:16px;margin:26px 0 12px}
+.pub-year .py{font-family:var(--font-serif);font-size:1.5rem;font-weight:600;color:var(--forest)}
+.pub-year .pl{flex:1;height:1px;background:var(--line)}
+.pub{display:grid;grid-template-columns:30px 1fr;gap:14px;padding:11px 0;border-bottom:1px solid var(--line-soft)}
+.pub .pn{font-family:var(--font-mono);font-size:.74rem;color:var(--ink-faint);padding-top:2px}
+.pub-title{font-size:.96rem;font-weight:600;line-height:1.45;letter-spacing:-.01em}
+.pub-title a{transition:color .2s}.pub-title a:hover{color:var(--forest)}
+.pub-auth{font-size:.82rem;color:var(--ink-faint);margin-top:3px;line-height:1.5}
+.pub-auth .me{color:var(--forest-2);font-weight:600}
+.pub-venue{font-size:.85rem;color:var(--ink-soft);margin-top:4px;font-style:italic}
+.pub-if{font-family:var(--font-mono);font-style:normal;font-size:.72rem;color:var(--leaf);background:var(--paper-2);padding:2px 7px;border-radius:5px;margin-left:6px;white-space:nowrap}
+.pat{display:grid;grid-template-columns:30px 1fr;gap:14px;padding:13px 0;border-bottom:1px solid var(--line-soft)}
+.pat .pn{font-family:var(--font-mono);font-size:.74rem;color:var(--ink-faint)}
+.pat .pat-t{font-size:.94rem;line-height:1.5}
+.pat .pat-no{font-family:var(--font-mono);font-size:.76rem;color:var(--leaf);margin-top:3px}
+.pat-sub{font-family:var(--font-mono);font-size:.78rem;letter-spacing:.06em;color:var(--ink-faint);text-transform:uppercase;margin:24px 0 6px}
+
+/* verse */
+.verse{background:var(--paper-2);text-align:center;padding:clamp(48px,7vw,84px) 0}
+.verse p{font-family:var(--font-serif);font-style:italic;font-size:clamp(1.05rem,2vw,1.4rem);color:var(--forest-2);max-width:46ch;margin:0 auto;line-height:1.6}
+.verse .ref{font-family:var(--font-mono);font-style:normal;font-size:.76rem;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-top:20px;display:block}
+
+/* footer */
+.footer{background:var(--carbon);color:rgba(255,255,255,.7);padding:64px 0 40px}
+.footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:40px;padding-bottom:44px;border-bottom:1px solid rgba(255,255,255,.1)}
+.footer .brand{color:#fff;margin-bottom:16px}.footer .brand small{color:rgba(255,255,255,.45)}
+.footer-blurb{font-size:.93rem;line-height:1.7;max-width:38ch;color:rgba(255,255,255,.6)}
+.footer-col h4{font-family:var(--font-mono);font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:var(--leaf-bright);margin-bottom:16px;font-weight:500}
+.footer-col a,.footer-col p{display:block;font-size:.91rem;color:rgba(255,255,255,.68);margin-bottom:10px;line-height:1.5}
+.footer-col a:hover{color:#fff}
+.footer-bottom{padding-top:26px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;font-size:.8rem;color:rgba(255,255,255,.4);font-family:var(--font-mono);letter-spacing:.02em}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.3,1),transform .7s cubic-bezier(.2,.7,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:900px){
+  .nav-links{position:fixed;top:68px;left:0;right:0;background:var(--paper);flex-direction:column;align-items:stretch;gap:0;padding:8px 0 16px;border-bottom:1px solid var(--line);transform:translateY(-12px);opacity:0;pointer-events:none;transition:.25s}
+  .nav-links.open{transform:none;opacity:1;pointer-events:auto}
+  .nav-links a{padding:12px 28px;font-size:1rem}
+  .nav-links .nav-lang{margin:8px 28px 0;display:inline-block;width:auto;align-self:flex-start}
+  .nav-links .nav-cta{margin:8px 28px 0;text-align:center}
+  .nav-toggle{display:block}
+  .about-grid{grid-template-columns:1fr;gap:34px}.pi-card{position:static;max-width:300px}
+  .t-grid{grid-template-columns:1fr}.join-grid{grid-template-columns:1fr}
+  .stats-inner{grid-template-columns:repeat(2,1fr)}
+  .flow{grid-template-columns:1fr}.flow-arrow{padding:8px 0;transform:rotate(90deg)}
+  .footer-top{grid-template-columns:1fr;gap:30px}
+}
+@media(max-width:560px){.container{padding:0 20px}.nav-inner{padding:0 20px}.cv li{flex-direction:column;gap:4px}.join-apply{flex-direction:column;align-items:flex-start;padding:30px}.pub{grid-template-columns:1fr}.pub .pn{display:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none !important;transition:none !important;scroll-behavior:auto !important}.reveal{opacity:1;transform:none}}
+:focus-visible{outline:2px solid var(--leaf);outline-offset:3px;border-radius:3px}
+</style>
+</head>
+<body>
+<a id="top"></a>
+
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand" aria-label="Clean Air Making Laboratory home">
+      <svg viewBox="0 0 100 110" aria-hidden="true"><polygon points="50,4 92,28 92,82 50,106 8,82 8,28" fill="none" stroke="#15503A" stroke-width="7"/><polygon points="50,30 71,42 71,68 50,80 29,68 29,42" fill="#2FA068"/></svg>
+      <span>Clean Air Making Lab<small>Chungnam Nat'l University</small></span>
+    </a>
+    <nav class="nav-links" id="navLinks">
+      <a href="#about">About</a>
+      <a href="#research">Research</a>
+      <a href="#members">People</a>
+      <a href="#publications">Publications</a>
+      <a href="#teaching">Teaching</a>
+      <a href="index.html" class="nav-lang">한국어</a>
+      <a href="#join" class="nav-cta">Join Us</a>
+    </nav>
+    <button class="nav-toggle" id="navToggle" aria-label="Open menu" aria-expanded="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-glow"></div>
+  <svg class="hero-hex" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <polygon points="120,40 175,72 175,136 120,168 65,136 65,72"/><polygon points="1050,90 1120,130 1120,210 1050,250 980,210 980,130"/><polygon points="940,420 998,453 998,520 940,553 882,520 882,453"/><polygon points="220,470 262,494 262,542 220,566 178,542 178,494"/><polygon points="1140,360 1182,384 1182,432 1140,456 1098,432 1098,384"/>
+  </svg>
+  <div class="container">
+    <div class="eyebrow reveal"><span class="hx"></span>Chungnam National University · Environmental Engineering</div>
+    <div class="hero-name reveal">Clean Air Making Laboratory</div>
+    <h1 class="reveal">From waste,<br><span class="accent">clean air.</span></h1>
+    <p class="hero-sub reveal">We develop environmental catalysts that break down hazardous gases — upcycling waste PET plastic into high-performance activated carbon catalysts to tackle air pollution and plastic waste together.</p>
+    <div class="hero-actions reveal">
+      <a href="#research" class="btn btn-primary">Explore research</a>
+      <a href="#join" class="btn btn-ghost">Join the lab &rarr;</a>
+    </div>
+    <div class="hero-tags reveal"><b>H₂S</b> selective oxidation <span class="dot">·</span> <b>C₇H₈</b> toluene complete oxidation <span class="dot">·</span> <b>TEDA</b> radioactive gas <span class="dot">·</span> waste-PET carbon</div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section class="stats">
+  <div class="stats-inner">
+    <div class="stat reveal"><div class="s-num">43</div><div class="s-lab">SCI·SCIE·KCI Papers</div></div>
+    <div class="stat reveal"><div class="s-num">9</div><div class="s-lab">Domestic &amp; Int'l Patents</div></div>
+    <div class="stat reveal"><div class="s-num">BK21</div><div class="s-lab">FOUR Program</div></div>
+    <div class="stat reveal"><div class="s-num">2023</div><div class="s-lab">Minister's Award · MOE</div></div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <aside class="pi-card reveal">
+        <div class="pi-photo">
+          <img src="https://lh3.googleusercontent.com/sitesv/AA5AbUDliNeVp7PT5znTpyoOWcTjSVvgNltWRcEOl03M-K2SVl4DDxJTrfqpq4x5tVqN64AmUgyQ9Mj3ZlySmKn1_xXu0Ig5L3xYo-j1z_obUe8a_r_VbXw5TfSszfubj6xaDAJSaZ5ia2lSZC5RAIB9d5pM-LyyagKqD-SaB46KPNYVZ6PwtjoybBkIUGohMwa8lV1t7R5feAHLj-ETQjT59ywzyRhAlr19UsNaySU=w600" alt="Prof. Jae Hwan Yang" onerror="this.remove()">
+          <div class="ph-fallback"><svg class="ph-hex" viewBox="0 0 200 250" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><polygon points="40,30 70,47 70,81 40,98 10,81 10,47"/><polygon points="120,90 150,107 150,141 120,158 90,141 90,107"/></svg><div class="ph-label">JAE HWAN YANG</div></div>
+        </div>
+        <div class="pi-meta">
+          <div class="pi-name">Jae Hwan Yang</div>
+          <div class="pi-role">ASSOCIATE PROFESSOR</div>
+          <div class="pi-en">Ph.D.</div>
+        </div>
+        <div class="pi-contact">
+          <a href="mailto:yjh98@cnu.ac.kr"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg>yjh98@cnu.ac.kr</a>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>Office +82-42-821-6677 · Lab +82-42-821-7756</span>
+          <a href="https://sites.google.com/view/jhyang-cnu/home" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/></svg>Original homepage</a>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-5.2-7-11a7 7 0 0 1 14 0c0 5.8-7 11-7 11Z"/><circle cx="12" cy="10" r="2.5"/></svg>Dept. of Environmental Engineering, CNU, Daejeon</span>
+        </div>
+      </aside>
+
+      <div class="about-body">
+        <div class="section-head reveal">
+          <div class="eyebrow"><span class="hx"></span>About</div>
+          <h2>An environmental catalysis lab<br>for hazardous gases</h2>
+        </div>
+        <p class="reveal">The <strong>Clean Air Making Laboratory</strong> is an environmental catalysis group led by Prof. Jae Hwan Yang in the Department of Environmental Engineering at Chungnam National University. We work to improve air quality by breaking down and converting hazardous gases from industrial and everyday environments through catalytic reactions.</p>
+        <p class="reveal">Our flagship platform is the <strong>upcycling of waste PET plastic</strong>: we turn discarded plastic into high-performance activated carbon catalysts, addressing plastic waste and air pollution at once. Building on a decade of experience treating radioactive gases at the Korea Atomic Energy Research Institute (KAERI), we also pursue applications in the nuclear field.</p>
+        <ul class="cv reveal">
+          <li><span class="yr">2016</span><span class="what">Ph.D., KAIST<em>Department of Nuclear &amp; Quantum Engineering</em></span></li>
+          <li><span class="yr">2002·2004</span><span class="what">B.S. &amp; M.S., POSTECH<em>Department of Physics</em></span></li>
+          <li><span class="yr">2008–2018</span><span class="what">Senior Researcher, KAERI<em>Radioactive gaseous waste treatment · spent nuclear fuel head-end process</em></span></li>
+          <li><span class="yr">2018–</span><span class="what">Chungnam National University — Environmental Engineering / Environment &amp; IT Fusion (BK21 FOUR)<em>Assistant Professor (2018) → Associate Professor (2022–)</em></span></li>
+          <li><span class="yr">2023</span><span class="what">Minister's Award, Ministry of Environment<em>For contributions to atmospheric environment</em></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section class="section section--tint" id="research">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="hx"></span>Research</div>
+      <h2>Plastic waste into catalysts,<br>hazardous gases into clean air</h2>
+      <p>Several lines of hazardous-gas research branch out from a single material platform. Activated carbon made from waste PET is given catalytic functionality to break down different hazardous gases — selectively, or completely.</p>
+    </div>
+
+    <div class="flow reveal" role="img" aria-label="Research flow from waste PET plastic through activated carbon catalyst to clean air">
+      <div class="flow-node"><div class="fn-tag">Waste</div><div class="fn-title">Waste PET plastic</div><div class="fn-sub">Discarded bottle resource</div></div>
+      <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="flow-node is-dark"><div class="fn-tag" style="color:var(--leaf-bright)">Catalyst</div><div class="fn-title">Activated carbon catalyst</div><div class="fn-sub">Porous carbon + active sites</div></div>
+      <div class="flow-arrow"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></div>
+      <div class="flow-node"><div class="fn-tag">Clean Air</div><div class="fn-title">Hazardous gas breakdown</div><div class="fn-sub">Converted to clean air</div></div>
+    </div>
+
+    <div class="r-grid">
+      <article class="r-card reveal"><div class="r-num">01 / Selective Oxidation</div><div class="r-formula">H₂S → S</div><h3>H₂S selective oxidation</h3><p>Hydrogen sulfide — a source of odor and corrosion — is selectively oxidized to elemental sulfur (S) rather than fully combusted, recovering it as a resource.</p><div class="r-lead">Lead · <b>Nu Ry Sagong</b>, M.S.</div></article>
+      <article class="r-card reveal"><div class="r-num">02 / Complete Oxidation</div><div class="r-formula">C₇H₈ → CO₂</div><h3>Toluene · VOC complete oxidation</h3><p>We develop catalysts that fully decompose toluene, a representative VOC, at low temperature to remove VOCs from industrial exhaust.</p><div class="r-lead">Lead · <b>Ji Young Park</b>, M.S.</div></article>
+      <article class="r-card reveal"><div class="r-num">03 / Nuclear Application</div><div class="r-formula">TEDA · I</div><h3>Radioactive gas · TEDA</h3><p>We study catalytic oxidation of TEDA, used to capture radioactive iodine at nuclear facilities. Carried out under KHNP's K-Cloud project.</p><div class="r-lead">Lead · <b>Sung Min Park</b>, M.S.</div></article>
+      <article class="r-card reveal"><div class="r-num">04 / Material Platform</div><div class="r-formula">PET → AC</div><h3>Waste-PET activated carbon</h3><p>Waste PET is converted via KOH activation into porous carbon and given adsorptive and catalytic functions — the shared material base across all our research.</p><div class="r-lead">Common platform</div></article>
+    </div>
+
+    <div class="r-keys reveal"><span>#carbon-neutral</span><span>#circular-economy</span><span>#upcycling</span><span>#environmental-catalysis</span><span>#NOx·SCR</span><span>#plasma-catalysis</span><span>#vehicle-exhaust</span><span>#radioactive-gas</span></div>
+  </div>
+</section>
+
+<!-- MEMBERS -->
+<section class="section" id="members">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="hx"></span>People</div>
+      <h2>Our people</h2>
+      <p>The advisor and graduate researchers run experiments, present, and publish together. And the next seat is open.</p>
+    </div>
+    <div class="m-grid">
+      <article class="m-card reveal"><div class="m-photo" data-initial="P"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUCxOdjAV57-Mf4hj9AqaVU0k42ARPczIFoRMDexkV2Hmjt1YsUC35IQB8SxnvIvZ5CFbuYUhubY3PUBbn86xT0mYN2Vu7E3Wkq14kcKQVns4lRt75Aa00reYrmXd73eAV5RpN2zXHiUPg-l_oRsErqPXti3AT-49Ab3FegeefOv6yIDHKz8hITlP4LiQtM__7o8ZbTuHzFhSe0jyELRjhG0w4_p5raGTDOx=w600" alt="Ji Young Park" loading="lazy" onerror="this.remove()"></div><div class="m-name">Ji Young Park</div><div class="m-role">M.S. Student</div><div class="m-topic">Toluene · VOC complete oxidation</div></article>
+      <article class="m-card reveal"><div class="m-photo" data-initial="P"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUB0iWfA-LB4bkxGYZbLX4vEdwvXwtgvQeKdvsovZEvXmDuX6KXZBOKkCH-dgwHienYfUDEbcr-VUMy5a0oppezkvwGpdib79xfGpzgWPRnb08Q3NWqLinVixRHfPVS_yNOZrhQNrNMDAh44L2wxVMjINfMWqE4m1h4ljL2M-DQgLv3Y6AD-eV0zKU_yJGumWwbDU7VYKZb7dT0yjtlJ1Zgp9ia-0kNLm7Gbmg8=w600" alt="Sung Min Park" loading="lazy" onerror="this.remove()"></div><div class="m-name">Sung Min Park</div><div class="m-role">M.S. Student</div><div class="m-topic">TEDA catalytic oxidation · radioactive gas</div></article>
+      <article class="m-card reveal"><div class="m-photo" data-initial="S"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUDaAdlN3PV_Az0VRiGsdHMaHx0XEE9n3SFMcbJ9szmzg3d0IRQEMfB3qGFGQzOtkidYbM2O14WCKifueTnFrmSB7dufHi8YtntaFLKMIo2QXHx2XV1TJynUeeVNlM-Xeyz7yLA1128Fgwh78J6SW2zF9pme3KO4-mzNRz57CHRbsPuN1Zs34Y6dniy7EC6zdAj_W5cvm_VFnm1bzxo8YFVP2-u5fL80Dxq8hWA=w600" alt="Nu Ry Sagong" loading="lazy" onerror="this.remove()"></div><div class="m-name">Nu Ry Sagong</div><div class="m-role">M.S. Student</div><div class="m-topic">H₂S selective oxidation</div></article>
+      <article class="m-card m-join reveal"><div class="mj-plus">＋</div><div class="m-name">You could be<br>next</div><div class="m-topic">Recruiting M.S. &amp; Ph.D. students</div><a href="#join">See recruiting info &rarr;</a></article>
+    </div>
+    <div class="m-ug reveal"><b>Undergraduate researchers</b> Cheon Woong Park · Young Joo Yoon · Jinyoung Na</div>
+
+    <div class="al-head reveal"><h3>Where our graduates are</h3><span>Alumni</span></div>
+    <div class="al-grid">
+      <div class="al-card reveal"><div class="al-ava" data-initial="L"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUB2yJHoX11odYtpEdZjmKqG4Sw9nF8YXgNrfBxeCgTjimM4TkuoXcCz0MXKBjp1wtKPnFrGv0MHZ24ChMTAHd5w7iUx5dbZxgtWgg3ioZfbKXC3S_eWtQe_rkqa3rRJ0NFc8iUIVPG6lJrjMdyDdXWkORJpzV1ROEg8lwVbctKQanFiXX1Crxv1b47_eNDS8krWz11ja1TvdN8=w300" alt="Hyun Soo Lee" loading="lazy" onerror="this.remove()"></div><div class="al-info"><div class="al-name">Hyun Soo Lee</div><div class="al-now">PureSphere Co., Ltd.</div><div class="al-deg">M.S. 2022</div></div></div>
+      <div class="al-card reveal"><div class="al-ava" data-initial="L"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUBi6PsWq7p3jjSV96Yl0NXv3ZaZcGXIZsHVWpukFTGe9bm6rfS8noUZsBzJlUBYrBbkvUNNTOvuONrk6-i9ACzsmqvWU0wuN8F4iUX2wQHrdtvC0qoPtb9NSdx1bteFr81x6XrNNzrgYJ_rm23jj3PlrZmqJ59YnKcPmmlSFByGGHa1zn0YOhkq7h54TWlYhio7lzut_eBlzO8=w300" alt="Hyun Ji Lee" loading="lazy" onerror="this.remove()"></div><div class="al-info"><div class="al-name">Hyun Ji Lee</div><div class="al-now">Korea Waste Association</div><div class="al-deg">M.S. 2021</div></div></div>
+      <div class="al-card reveal"><div class="al-ava" data-initial="Y"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUDFUot-S63tcAKVdASiJuzLQK7WVuvEuz5WTirK4UNuHpXjS4VYC1EtAMKWmsB2gjWg4S0VAZG42E9_4PpqJiPwPWcYEOq9CUHWktMJjej3g2tyePXCRymg-x1XlDNanAQciJlcnVTdMIrbNToko8expeCJSc9j2erPV_YI5WPbVN271zxqrbXgg-8SKbwrqibQrsFWUSva=w300" alt="Jeong Hyun You" loading="lazy" onerror="this.remove()"></div><div class="al-info"><div class="al-name">Jeong Hyun You</div><div class="al-now">Blutech Co.</div><div class="al-deg">M.S. 2020</div></div></div>
+      <div class="al-card reveal"><div class="al-ava" data-initial="P"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUAEdb4qmn5tto46tJQV3D7Yzbmuj5Hf55C_C-CAT3E7U3KZ99F2pxCRrk0T14LCRzTme2gtpohPWTsjsvBz2n8AhvtLPRS7blXgTMd8V_mJiuCCll5ocvAJbigQwU33HxAIaeTStndLfJapaqgTG4u9JHcZn2sQw-8ThRpBR8E9jiHocf6rx24ueuydZRn8xP1fq25W8VynvWBSv1ScHdHhJwh25bLSk6hG=w300" alt="Phule Ajit Dattatray" loading="lazy" onerror="this.remove()"></div><div class="al-info"><div class="al-name">Phule Ajit D.</div><div class="al-now">NANO Co., Ltd.</div><div class="al-deg">Former Research Prof.</div></div></div>
+      <div class="al-card reveal"><div class="al-ava" data-initial="K"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUArsoA7Iox166n_SAXAZ-vL1knGGAgETu_H7n7dFn-VEzAdN19YDJkG_Kj8UQ32K3Z3YQ_Iw7DeypmaEu0Q9ntum_B0iZWlnIfialTlrnMZ9NBEzSFm3H8QrbiiMymDoF5LRsnuzNwgoph2pUTot7hKpqlBWAnLR3DUEkD1oTxyDc1MmxEIsuHaBFYGe9hf0XkjpgZy3qpRKv8KYAh1uWrE8dRL3NvaFGV7=w300" alt="Seul Yi Kim" loading="lazy" onerror="this.remove()"></div><div class="al-info"><div class="al-name">Seul Yi Kim</div><div class="al-now">M.S. 2024</div><div class="al-deg">H₂S·VOC·NOx catalytic oxidation</div></div></div>
+      <div class="al-card reveal"><div class="al-ava" data-initial="Z"><img src="https://lh3.googleusercontent.com/sitesv/AA5AbUC-gQSOdOoK5lzs4lnh9opyZfjoMUqQnksYyqHP-y2m5rMLW66PNFfnble-W9vdXqJpeQQ0A278uTMK1SRWUD6L-R2TyOgxXd9UFGsczTKYGkBmIHsJ3cQGpBhEulGRMY_zJM86Z-Sj22k2nHNDYmVzgR95rBxDYVblnFY_IWgQsDXYB6bPGs4dHvI4GgzK8nB_Ju-W2xfTe4VzC4DqotWZwqDqLG4KIjmarqA=w300" alt="Md. Wahad Uz Zaman" loading="lazy" onerror="this.remove()"></div><div class="al-info"><div class="al-name">Md. Wahad Uz Zaman</div><div class="al-now">M.S. 2024</div><div class="al-deg">VOC·NOx multipollutant catalysis</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- JOIN -->
+<section class="section join" id="join">
+  <svg class="hero-hex" viewBox="0 0 1200 600" preserveAspectRatio="xMidYMid slice" aria-hidden="true"><polygon points="120,60 175,92 175,156 120,188 65,156 65,92"/><polygon points="1080,120 1150,160 1150,240 1080,280 1010,240 1010,160"/><polygon points="980,460 1038,493 1038,560 980,593 922,560 922,493"/></svg>
+  <div class="container">
+    <div class="eyebrow reveal"><span class="hx"></span>Join Us</div>
+    <h2 class="reveal">We're looking for<br>graduate students</h2>
+    <p class="lead reveal">Whatever your undergraduate background, you're welcome if you're drawn to solving environmental problems through catalysis. We especially welcome inquiries from students at other universities.</p>
+    <div class="join-grid reveal">
+      <div class="join-item"><svg class="ji-hx" viewBox="0 0 100 110" fill="none" stroke="currentColor" stroke-width="6"><polygon points="50,6 90,30 90,80 50,104 10,80 10,30"/></svg><h3>Research that matters</h3><p>Environmental catalysis sits at the heart of the carbon-neutral, circular-economy era. The clear narrative of plastic upcycling drives both motivation and strong publication potential.</p></div>
+      <div class="join-item"><svg class="ji-hx" viewBox="0 0 100 110" fill="none" stroke="currentColor" stroke-width="6"><polygon points="50,6 90,30 90,80 50,104 10,80 10,30"/></svg><h3>Stable research funding</h3><p>The lab runs on the BK21 FOUR program and collaborative projects with national institutions such as KHNP and KAERI. Details on stipends and support are shared during an interview.</p></div>
+      <div class="join-item"><svg class="ji-hx" viewBox="0 0 100 110" fill="none" stroke="currentColor" stroke-width="6"><polygon points="50,6 90,30 90,80 50,104 10,80 10,30"/></svg><h3>A broad career network</h3><p>Our graduates have moved into environmental and materials companies including PureSphere, Blutech, and the Korea Waste Association. We leverage Daejeon's proximity to the Daedeok research complex and energy enterprises.</p></div>
+      <div class="join-item"><svg class="ji-hx" viewBox="0 0 100 110" fill="none" stroke="currentColor" stroke-width="6"><polygon points="50,6 90,30 90,80 50,104 10,80 10,30"/></svg><h3>A place to grow</h3><p>A strong record of SCI-level publications, conference presentations, and close one-on-one mentoring help you build your experimental, writing, and presentation skills.</p></div>
+    </div>
+    <div class="join-apply reveal">
+      <div class="ja-text"><h3>Interested?</h3><p>Send a short introduction and your research interests by email. We'll be glad to arrange a lab visit and a chat.</p></div>
+      <a href="mailto:yjh98@cnu.ac.kr?subject=%5BGraduate%20Admission%20Inquiry%5D%20Clean%20Air%20Making%20Laboratory" class="btn btn-primary">Send an inquiry email &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- TEACHING -->
+<section class="section section--tint" id="teaching">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="hx"></span>Teaching</div>
+      <h2>Teaching</h2>
+      <p>We teach the fundamentals and applications of environmental engineering at both undergraduate and graduate levels. All courses run on a flipped-classroom model.</p>
+    </div>
+    <div class="t-grid">
+      <article class="t-card reveal"><div class="t-level">Undergraduate</div><h3>Dust Control Engineering</h3><p>An undergraduate course on the behavior of particulate matter in air and dust-collection technologies.</p></article>
+      <article class="t-card reveal"><div class="t-level">Undergraduate</div><h3>Engineering Mathematics</h3><p>A foundational course building the mathematical tools needed to solve engineering problems.</p></article>
+      <article class="t-card reveal"><div class="t-level">Graduate</div><h3>Special Topics in Hazardous Gas Treatment</h3><p>A graduate course on the generation of hazardous gases and their catalytic and adsorptive treatment.</p></article>
+    </div>
+    <div class="t-note reveal"><span class="hx"></span><span>Flipped Classroom — students learn from lecture videos in advance, and class time focuses on discussion and problem-solving.</span></div>
+  </div>
+</section>
+
+<!-- PUBLICATIONS -->
+<section class="section" id="publications">
+  <div class="container">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="hx"></span>Publications</div>
+      <h2>Publications &amp; Patents</h2>
+      <p>Research output published in domestic and international journals. * denotes the corresponding author.</p>
+    </div>
+    <div class="pub-tabs reveal">
+      <button class="pub-tab active" data-tab="papers">Papers (43)</button>
+      <button class="pub-tab" data-tab="patents">Patents (9)</button>
+    </div>
+
+    <div class="pub-panel active" id="papers">
+      <div class="reveal">
+        <div class="pub-year"><span class="py">2025</span><span class="pl"></span></div>
+        <div class="pub"><div class="pn">1</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.envres.2025.120867" target="_blank" rel="noopener">Design of bifunctional nitrogen-doped biochar with adsorption and catalytic oxidation capabilities for enhanced toluene emission control</a></div><div class="pub-auth">M. W. U. Zaman, A. D. Phule, T. G. Senthamaraikannan, S. Y. Kim, S. E., <span class="me">J. H. Yang*</span>, D.-H. Lim*</div><div class="pub-venue">Environmental Research, 269 (2025) 120867 <span class="pub-if">IF 7.7 · top 3.9%</span></div></div></div>
+        <div class="pub"><div class="pn">2</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.seppur.2024.128378" target="_blank" rel="noopener">Excellent adsorption and catalytic oxidation of toluene facilitated by metal-free nitrogen-doped mesoporous biochar</a></div><div class="pub-auth">M. W. U. Zaman, A. D. Phule, S. E., S. Y. Kim, <span class="me">J. H. Yang*</span></div><div class="pub-venue">Separation and Purification Technology, 353 (2025) 128378 <span class="pub-if">IF 8.1 · top 8.8%</span></div></div></div>
+
+        <div class="pub-year"><span class="py">2024</span><span class="pl"></span></div>
+        <div class="pub"><div class="pn">3</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.jaap.2024.106822" target="_blank" rel="noopener">Improving H₂S remediation efficiency through metal-free biochar modification: Nitrogen introduction and mesopore formation</a></div><div class="pub-auth">S. Y. Kim, A. D. Phule, <span class="me">J. H. Yang*</span>, S.-C. Park</div><div class="pub-venue">Journal of Analytical and Applied Pyrolysis, 183 (2024) 106822 <span class="pub-if">IF 5.8 · top 9.4%</span></div></div></div>
+        <div class="pub"><div class="pn">4</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.jwpe.2024.106092" target="_blank" rel="noopener">Conversion of PET bottles into carbonaceous adsorbents for Pb(II) removal from aqueous solutions via KOH activation</a></div><div class="pub-auth">G. Park, A. D. Phule, S. E., S. Y. Kim, M. W. U. Zaman, <span class="me">J. H. Yang*</span>, S.-C. Jeon</div><div class="pub-venue">Journal of Water Process Engineering, 66 (2024) 106092 <span class="pub-if">IF 6.3 · top 5.5%</span></div></div></div>
+        <div class="pub"><div class="pn">5</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.psep.2024.02.046" target="_blank" rel="noopener">Advancements in SCR technologies for NOx reduction: A comprehensive review of reducing agents</a></div><div class="pub-auth">S. E., A. D. Phule, <span class="me">J. H. Yang*</span></div><div class="pub-venue">Process Safety and Environmental Protection, 184 (2024) 854–880 <span class="pub-if">IF 6.9 · top 12.9%</span></div></div></div>
+        <div class="pub"><div class="pn">6</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.jhazmat.2024.133777" target="_blank" rel="noopener">Investigation of bismuth-based metal-organic frameworks for effective capture and immobilization of radioiodine gas</a></div><div class="pub-auth">Y. E. Jung, <span class="me">J. H. Yang*</span>, M.-S. Yim*</div><div class="pub-venue">Journal of Hazardous Materials, 467 (2024) 133777 <span class="pub-if">IF 13.6</span></div></div></div>
+        <div class="pub"><div class="pn">7</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.anucene.2024.110501" target="_blank" rel="noopener">Copper tellurite glass for radioactive iodine immobilization</a></div><div class="pub-auth">S.-S. Shin, G.-Y. Kim, B. Lee, <span class="me">J.-H. Yang</span>, Y.-S. Son, J.-H. Choi, J.-Y. Pyo, K. R. Lee, H.-S. Park, H. W. Kang*</div><div class="pub-venue">Annals of Nuclear Energy, 202 (2024) 110501</div></div></div>
+        <div class="pub"><div class="pn">8</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.net.2024.02.051" target="_blank" rel="noopener">An estimation and radioactivity measurement for radiocarbon (¹⁴C) in the Korean nuclear power plants</a></div><div class="pub-auth">S. R. Yang, J. H. Lee, <span class="me">J. H. Yang</span>, G.-I. Park*</div><div class="pub-venue">Nuclear Engineering and Technology, 56 (2024) 2906–2915 <span class="pub-if">IF 2.7</span></div></div></div>
+        <div class="pub"><div class="pn">9</div><div><div class="pub-title"><a href="https://doi.org/10.1007/s41742-023-00554-6" target="_blank" rel="noopener">Carbon-based catalysts for clean environmental remediation</a></div><div class="pub-auth">A. D. Phule, M. W. U. Zaman, S. E., S. Y. Kim, S. G. Lee, G. Park, <span class="me">J. H. Yang*</span></div><div class="pub-venue">International Journal of Environmental Research, 18(3) (2024)</div></div></div>
+
+        <div class="pub-year"><span class="py">2023</span><span class="pl"></span></div>
+        <div class="pub"><div class="pn">10</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.jece.2023.111131" target="_blank" rel="noopener">Catalysts for fast and NO₂ SCR reactions for the removal of nitrogen oxides: Recent advances, mechanisms, and future directions</a></div><div class="pub-auth">S. E., S. Y. Kim, A. D. Phule, M. W. U. Zaman, S. G. Lee, G. Park, <span class="me">J. H. Yang*</span></div><div class="pub-venue">Journal of Environmental Chemical Engineering, 11(6) (2023) 111131</div></div></div>
+
+        <div class="pub-year"><span class="py">2022</span><span class="pl"></span></div>
+        <div class="pub"><div class="pn">11</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.jece.2022.108971" target="_blank" rel="noopener">Development of a CaO-based pellet for capturing gaseous technetium-99 from spent nuclear fuel</a></div><div class="pub-auth">S.-M. Hong, <span class="me">J.-H. Yang</span>, C. H. Lee, K. R. Lee, H.-S. Park</div><div class="pub-venue">Journal of Environmental Chemical Engineering, 10(6) (2022) 108971</div></div></div>
+        <div class="pub"><div class="pn">12</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.apsusc.2022.153437" target="_blank" rel="noopener">Densification behavior of freeze-casted alumina with grain boundary segregation of impurities</a></div><div class="pub-auth">S.-C. Jeon*, T.-U. Wi, <span class="me">J.-H. Yang</span>, K.-S. Moon, D.-Y. Yang, H.-W. Lee*</div><div class="pub-venue">Applied Surface Science, 593 (2022) 153437 <span class="pub-if">IF 6.7</span></div></div></div>
+        <div class="pub"><div class="pn">13</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.net.2022.01.016" target="_blank" rel="noopener">Verification of the adequacy of domestic low-level radioactive waste grouping analysis using statistical methods</a></div><div class="pub-auth">D.-J. Lee, H. Woo, D.-S. Hong, G. Y. Kim, S.-H. Oh, W. Seong, J. Im*, <span class="me">J. H. Yang*</span></div><div class="pub-venue">Nuclear Engineering and Technology (2022)</div></div></div>
+
+        <div class="pub-year"><span class="py">2021</span><span class="pl"></span></div>
+        <div class="pub"><div class="pn">14</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.jclepro.2021.129791" target="_blank" rel="noopener">Integrated sol-gel and hydrothermal synthesis of V₂O₅/TiO₂ nanocatalysts for enhanced catalytic removal of H₂S</a></div><div class="pub-auth">H. S. Lee, <span class="me">J. H. Yang*</span>, S.-C. Jeon</div><div class="pub-venue">Journal of Cleaner Production, 329 (2021) 129791 <span class="pub-if">IF 9.3</span></div></div></div>
+        <div class="pub"><div class="pn">15</div><div><div class="pub-title"><a href="https://doi.org/10.1021/acsanm.1c01691" target="_blank" rel="noopener">Monolayer hexagonal boron nitride as a proton conductive gas barrier layer for PEM water electrolyzer</a></div><div class="pub-auth">T. Kim, Y. Sihn, I.-H. Yoon, S. J. Yoon, K. Lee, <span class="me">J. H. Yang</span>, S. So*, C. W. Park*</div><div class="pub-venue">ACS Applied Nano Materials, 4(9) (2021) 9104–9112 <span class="pub-if">IF 5.1</span></div></div></div>
+        <div class="pub"><div class="pn">16</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.jeurceramsoc.2021.05.057" target="_blank" rel="noopener">Thermal diffusion kinetics of cesium in ceramic microcell UO₂ fuels for accident-tolerant fuel</a></div><div class="pub-auth">S.-C. Jeon*, D.-J. Kim, D. S. Kim, <span class="me">J. H. Yang</span>, K.-S. Moon</div><div class="pub-venue">Journal of the European Ceramic Society, 41(13) (2021) 6784–6788 <span class="pub-if">IF 5.3</span></div></div></div>
+        <div class="pub"><div class="pn">17</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.jhazmat.2021.125974" target="_blank" rel="noopener">Precise control of heat-treatment conditions to improve the catalytic performance of V₂O₅/TiO₂ for H₂S removal</a></div><div class="pub-auth"><span class="me">J. H. Yang</span>, H. J. Lee, H. S. Lee, S.-C. Jeon*, Y. S. Han</div><div class="pub-venue">Journal of Hazardous Materials, 416 (2021) 125974 <span class="pub-if">IF 10.6</span></div></div></div>
+        <div class="pub"><div class="pn">18</div><div><div class="pub-title"><a href="https://doi.org/10.1177/1747519820945884" target="_blank" rel="noopener">Synthesis and catalytic properties of a novel copper- and manganese-substituted cerium dioxide for benzene remediation</a></div><div class="pub-auth"><span class="me">J. H. Yang*</span>, J. H. You</div><div class="pub-venue">Journal of Chemical Research, 45(5-6) (2021) 545–550</div></div></div>
+        <div class="pub"><div class="pn">19</div><div><div class="pub-title"><a href="https://doi.org/10.1007/s11814-021-0755-y" target="_blank" rel="noopener">Hydrogen sulfide removal technologies: a focused review on adsorption and catalytic oxidation</a></div><div class="pub-auth"><span class="me">J. H. Yang*</span></div><div class="pub-venue">Korean Journal of Chemical Engineering, 38(4) (2021) 674–691</div></div></div>
+        <div class="pub"><div class="pn">20</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.jeurceramsoc.2020.11.028" target="_blank" rel="noopener">Compositional design of an amphoteric chemical trap for capturing gaseous cesium and iodine in UO₂ nuclear fuel</a></div><div class="pub-auth">S.-C. Jeon, D.-J. Kim, D. S. Kim, <span class="me">J. H. Yang*</span>, K.-S. Moon*</div><div class="pub-venue">Journal of the European Ceramic Society, 41(4) (2021) 2892–2897 <span class="pub-if">IF 5.3</span></div></div></div>
+
+        <div class="pub-year"><span class="py">2020</span><span class="pl"></span></div>
+        <div class="pub"><div class="pn">21</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.jiec.2020.05.005" target="_blank" rel="noopener">Sea-urchin-like mesoporous copper-manganese oxide catalysts: Influence of copper on benzene oxidation</a></div><div class="pub-auth">H. J. Lee, <span class="me">J. H. Yang*</span>, J. H. You, B. Y. Yoon</div><div class="pub-venue">Journal of Industrial and Engineering Chemistry, 89 (2020) 156–165</div></div></div>
+        <div class="pub"><div class="pn">22</div><div><div class="pub-title"><a href="https://doi.org/10.1080/00295450.2020.1713680" target="_blank" rel="noopener">Examining practical application feasibility of bismuth-embedded SBA-15 for gaseous iodine adsorption</a></div><div class="pub-auth">S. W. Kang, <span class="me">J. H. Yang</span>, M. S. Yim</div><div class="pub-venue">Nuclear Technology, 206(10) (2020) 1593–1606</div></div></div>
+
+        <div class="pub-year"><span class="py">2019</span><span class="pl"></span></div>
+        <div class="pub"><div class="pn">23</div><div><div class="pub-title"><a href="https://doi.org/10.5572/KOSAE.2019.35.5.625" target="_blank" rel="noopener">A study on the removal of benzene and the properties of catalysts prepared by framework substitution of copper and manganese in ZSM-5</a></div><div class="pub-auth">J. H. You, <span class="me">J. H. Yang*</span></div><div class="pub-venue">Journal of Korean Society for Atmospheric Environment, 35(5) (2019) 625–635</div></div></div>
+        <div class="pub"><div class="pn">24</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.jiec.2019.04.029" target="_blank" rel="noopener">An efficient capture of cesium from cesium iodide (CsI) off-gas by aluminosilicate sorbents in the presence of oxygen</a></div><div class="pub-auth"><span class="me">J. H. Yang</span>, J. Y. Yoon, S.-M. Hong, J. H. Lee, Y.-Z. Cho</div><div class="pub-venue">Journal of Industrial and Engineering Chemistry, 77 (2019) 146–153</div></div></div>
+
+        <div class="pub-year"><span class="py">2018</span><span class="pl"></span></div>
+        <div class="pub"><div class="pn">25</div><div><div class="pub-title"><a href="https://doi.org/10.1080/00295450.2018.1469347" target="_blank" rel="noopener">Estimation on feeding portions of slitting decladded fuel fragments to electrolytic reduction process</a></div><div class="pub-auth">J.-W. Lee, D.-Y. Lee, Y.-S. Lee, <span class="me">J.-H. Yang</span>, G.-I. Park, J.-W. Lee, H.-M. Kwon, Y.-Z. Cho</div><div class="pub-venue">Nuclear Technology, 204(1) (2018) 101–109</div></div></div>
+
+        <div class="pub-year"><span class="py">2017</span><span class="pl"></span></div>
+        <div class="pub"><div class="pn">26</div><div><div class="pub-title"><a href="https://doi.org/10.1016/j.jhazmat.2017.05.062" target="_blank" rel="noopener">A new route to the stable capture and final immobilization of radioactive cesium</a></div><div class="pub-auth"><span class="me">J. H. Yang</span>, A. Han, J. Y. Yoon, H. S. Park, Y.-Z. Cho</div><div class="pub-venue">Journal of Hazardous Materials, 339 (2017) 73–81</div></div></div>
+        <div class="pub"><div class="pn">27</div><div><div class="pub-title">A kaolinite-based filter to capture gaseous cesium compounds in off-gas</div><div class="pub-auth"><span class="me">J. H. Yang</span>, J. Y. Yoon, J. H. Lee, Y.-Z. Cho</div><div class="pub-venue">Annals of Nuclear Energy, 103 (2017) 29–35</div></div></div>
+        <div class="pub"><div class="pn">28</div><div><div class="pub-title">Al₂O₃-containing silver phosphate glasses as hosting matrices for radioactive iodine</div><div class="pub-auth"><span class="me">J. H. Yang</span>, H.-S. Park, Y.-Z. Cho</div><div class="pub-venue">Journal of Nuclear Science and Technology, 54(12) (2017) 1330–1337</div></div></div>
+        <div class="pub"><div class="pn">29</div><div><div class="pub-title">Immobilization of Cs-trapping ceramic filters within glass-ceramic waste forms</div><div class="pub-auth"><span class="me">J. H. Yang</span>, H.-S. Park, Y.-Z. Cho</div><div class="pub-venue">Annals of Nuclear Energy, 110 (2017) 1121–1126</div></div></div>
+        <div class="pub"><div class="pn">30</div><div><div class="pub-title">Silver phosphate glasses for immobilization of radioactive iodine</div><div class="pub-auth"><span class="me">J. H. Yang</span>, H.-S. Park, Y.-Z. Cho</div><div class="pub-venue">Annals of Nuclear Energy, 110 (2017) 208–214</div></div></div>
+        <div class="pub"><div class="pn">31</div><div><div class="pub-title">Immobilization and bonding scheme of radioactive iodine-129 in silver tellurite glass</div><div class="pub-auth">C. W. Lee, J.-Y. Pyo, H.-S. Park, <span class="me">J. H. Yang</span>, J. Heo</div><div class="pub-venue">Journal of Nuclear Materials, 492 (2017) 239–243</div></div></div>
+        <div class="pub"><div class="pn">32</div><div><div class="pub-title">Tellurite glasses for vitrification of technetium-99 from pyrochemical processing</div><div class="pub-auth">J.-Y. Pyo, C. W. Lee, H.-S. Park, <span class="me">J. H. Yang</span>, W. Um, J. Heo</div><div class="pub-venue">Journal of Nuclear Materials, 493 (2017) 1–5</div></div></div>
+
+        <div class="pub-year"><span class="py">2016 · earlier</span><span class="pl"></span></div>
+        <div class="pub"><div class="pn">33</div><div><div class="pub-title">Glass composite waste forms for iodine confined in bismuth-embedded SBA-15</div><div class="pub-auth"><span class="me">J. H. Yang</span>, H. S. Park, D.-H. Ahn, M.-S. Yim</div><div class="pub-venue">Journal of Nuclear Materials, 480 (2016) 150–158</div></div></div>
+        <div class="pub"><div class="pn">34</div><div><div class="pub-title">Bismuth-embedded SBA-15 mesoporous silica for radioactive iodine capture and stable storage</div><div class="pub-auth"><span class="me">J. H. Yang</span>, Y.-J. Cho, J. M. Shin, M.-S. Yim</div><div class="pub-venue">Journal of Nuclear Materials, 465 (2015) 556–564</div></div></div>
+        <div class="pub"><div class="pn">35</div><div><div class="pub-title">Novel synthesis of bismuth-based adsorbents for the removal of ¹²⁹I in off-gas</div><div class="pub-auth"><span class="me">J. H. Yang</span>, J. M. Shin, J. J. Park, G. I. Park, M. S. Yim</div><div class="pub-venue">Journal of Nuclear Materials, 457 (2015) 1–8</div></div></div>
+        <div class="pub"><div class="pn">36</div><div><div class="pub-title">Fabrication and performance of fly ash granule filter for trapping gaseous cesium</div><div class="pub-auth">J. J. Park, J. M. Shin, <span class="me">J. H. Yang</span>, Y. H. Baek, G. I. Park</div><div class="pub-venue">Nukleonika, 60(3) (2015) 565–570</div></div></div>
+        <div class="pub"><div class="pn">37</div><div><div class="pub-title">Waste form of silver iodide (AgI) with low temperature sintering glasses</div><div class="pub-auth"><span class="me">J. H. Yang</span>, J. M. Shin, J. J. Park, G. I. Park</div><div class="pub-venue">Separation Science and Technology, 49(2) (2014) 298–304</div></div></div>
+        <div class="pub"><div class="pn">38</div><div><div class="pub-title">Stabilization of Cs/Re trapping filters using magnesium phosphate ceramics</div><div class="pub-auth"><span class="me">J. H. Yang</span>, J. M. Shin, C. H. Lee, C. M. Heo, M. K. Jeon, K. H. Kang</div><div class="pub-venue">Journal of Radioanalytical and Nuclear Chemistry, 295(1) (2013) 211–219</div></div></div>
+        <div class="pub"><div class="pn">39</div><div><div class="pub-title">I-129 waste form using Bi-Zn-P-oxide glass</div><div class="pub-auth"><span class="me">J. H. Yang</span>, J. M. Shin, J. J. Park, H. S. Park</div><div class="pub-venue">Energy Procedia, 39 (2013) 151–158</div></div></div>
+        <div class="pub"><div class="pn">40</div><div><div class="pub-title">Simulation of chlorination reaction behavior of hull wastes by using the HSC code</div><div class="pub-auth">M. K. Jeon, J. W. Lee, K. H. Kang, G. I. Park, C. H. Lee, <span class="me">J. H. Yang</span>, C. M. Heo</div><div class="pub-venue">Journal of Radioanalytical and Nuclear Chemistry, 289(2) (2011) 417–422</div></div></div>
+        <p class="pub-auth" style="margin-top:16px">Including in-press articles in J. Korean Ceram. Soc., Nucl. Eng. Technol., and Canadian Journal of Chemistry — 43 papers in total.</p>
+      </div>
+    </div>
+
+    <div class="pub-panel" id="patents">
+      <div class="reveal">
+        <div class="pat-sub">Domestic Patents (Korea)</div>
+        <div class="pat"><div class="pn">1</div><div><div class="pat-t">Radioactive cesium gas capture filter comprising a porous sintered body containing kaolinite, and its manufacturing method</div><div class="pat-no">Reg. 10-1869394</div></div></div>
+        <div class="pat"><div class="pn">2</div><div><div class="pat-t">Method for manufacturing fuel fragments for the electrolytic reduction process with a high cesium-compound removal rate</div><div class="pat-no">Reg. 10-1711808</div></div></div>
+        <div class="pat"><div class="pn">3</div><div><div class="pat-t">Decladding apparatus for spent nuclear fuel rods</div><div class="pat-no">Reg. 10-1719619</div></div></div>
+        <div class="pat"><div class="pn">4</div><div><div class="pat-t">Method for manufacturing low-temperature melting glass to solidify radioactive cesium waste filters</div><div class="pat-no">Reg. 10-1578623</div></div></div>
+        <div class="pat"><div class="pn">5</div><div><div class="pat-t">Porous capture material for trapping radioactive iodine gas, and its manufacturing method</div><div class="pat-no">Reg. 10-1512248</div></div></div>
+        <div class="pat"><div class="pn">6</div><div><div class="pat-t">Capture material for volatile technetium or rhenium compounds, and its manufacturing method</div><div class="pat-no">Reg. 10-1473585</div></div></div>
+        <div class="pat"><div class="pn">7</div><div><div class="pat-t">Cesium waste filter ceramic ingot containing radioactive cesium, and its manufacturing method</div><div class="pat-no">Reg. 10-1401789</div></div></div>
+        <div class="pat-sub">International Patents</div>
+        <div class="pat"><div class="pn">8</div><div><div class="pat-t">Cesium waste filter ceramic ingot containing radioactive cesium, and its manufacturing method</div><div class="pat-no">US 8,969,646</div></div></div>
+        <div class="pat"><div class="pn">9</div><div><div class="pat-t">Cesium waste filter ceramic ingot containing radioactive cesium, and its manufacturing method</div><div class="pat-no">JP 5,668,112</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERSE -->
+<section class="verse">
+  <div class="container">
+    <p>“If any of you lacks wisdom, you should ask God, who gives generously to all without finding fault, and it will be given to you.”</p>
+    <span class="ref">— James 1:5</span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="contact">
+  <div class="container">
+    <div class="footer-top">
+      <div>
+        <a href="#top" class="brand"><svg viewBox="0 0 100 110" aria-hidden="true"><polygon points="50,4 92,28 92,82 50,106 8,82 8,28" fill="none" stroke="#fff" stroke-width="7"/><polygon points="50,30 71,42 71,68 50,80 29,68 29,42" fill="#3EBE7E"/></svg><span>Clean Air Making Lab<small>Chungnam Nat'l University</small></span></a>
+        <p class="footer-blurb">Environmental catalysis lab, Department of Environmental Engineering, Chungnam National University. Turning plastic waste into catalysts, hazardous gases into clean air.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <a href="mailto:yjh98@cnu.ac.kr">yjh98@cnu.ac.kr</a>
+        <p>Office +82-42-821-6677 · Lab +82-42-821-7756</p>
+        <p>Dept. of Environmental Engineering, Chungnam National University, Daejeon, Korea</p>
+      </div>
+      <div class="footer-col">
+        <h4>Links</h4>
+        <a href="index.html">한국어</a>
+        <a href="https://sites.google.com/view/jhyang-cnu/home" target="_blank" rel="noopener">Original homepage</a>
+        <a href="#join">Join us</a>
+      </div>
+    </div>
+    <div class="footer-bottom"><span>© 2026 Clean Air Making Laboratory, CNU</span><span>Chungnam National University</span></div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var nav=document.getElementById('nav');
+  var onScroll=function(){nav.classList.toggle('scrolled',window.scrollY>12)};
+  window.addEventListener('scroll',onScroll,{passive:true});onScroll();
+  var toggle=document.getElementById('navToggle'),links=document.getElementById('navLinks');
+  toggle.addEventListener('click',function(){var o=links.classList.toggle('open');toggle.setAttribute('aria-expanded',o);});
+  links.addEventListener('click',function(e){if(e.target.tagName==='A'){links.classList.remove('open');toggle.setAttribute('aria-expanded',false);}});
+  document.querySelectorAll('.pub-tab').forEach(function(t){
+    t.addEventListener('click',function(){
+      document.querySelectorAll('.pub-tab').forEach(function(x){x.classList.remove('active')});
+      document.querySelectorAll('.pub-panel').forEach(function(x){x.classList.remove('active')});
+      t.classList.add('active');document.getElementById(t.dataset.tab).classList.add('active');
+    });
+  });
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){es.forEach(function(en){if(en.isIntersecting){en.target.classList.add('in');io.unobserve(en.target);}})},{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el,i){el.style.transitionDelay=(Math.min(i%6,5)*55)+'ms';io.observe(el);});
+  }else{document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('in')});}
+})();
+</script>
+</body>
+</html>
